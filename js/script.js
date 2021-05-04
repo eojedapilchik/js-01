@@ -14,6 +14,7 @@ const quotes = [
     source: "Nelson Mandela",
     citation: "Speech",
     year: 1980,
+    tag: "politician",
   },
   {
     quote: "The way to get started is to quit talking and begin doing.",
@@ -69,6 +70,7 @@ function printQuote() {
   if (quote.citation)
     html += `<span class="citation"> ${quote.citation} </span>`;
   if (quote.year) html += `<span class="year"> ${quote.year} </span>`;
+  if (quote.tag) html += `<span class="year"> ${quote.tag} </span>`;
   html += "</p>";
   document.querySelector("body").style.backgroundColor = randomBGColor(
     randomNum
@@ -89,7 +91,7 @@ function randomBGColor(rnd) {
   return color;
 }
 
-setInterval(printQuote, 3000);
+setInterval(printQuote, 6000);
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
