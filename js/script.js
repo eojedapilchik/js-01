@@ -38,6 +38,12 @@ const quotes = [
   },
 ];
 
+/**
+ * Random numbers between 0 and 225
+ * @returns {number} Random number between 0 and 255
+ */
+const randomNum = () => Math.round(Math.random() * 255);
+
 // console.log(quotes);
 /***
  * Gets a random quote from the quotes array
@@ -64,8 +70,23 @@ function printQuote() {
     html += `<span class="citation"> ${quote.citation} </span>`;
   if (quote.year) html += `<span class="year"> ${quote.year} </span>`;
   html += "</p>";
+  document.querySelector("body").style.backgroundColor = randomBGColor(
+    randomNum
+  );
   document.getElementById("quote-box").innerHTML = html;
+
   return html;
+}
+
+/**
+ *  Creates a randiom rgb color
+ * @param {*} rnd - A function that generates de random rgb color code
+ * @returns {string} - A rgb random color code -> rgb(x,y,z)
+ */
+
+function randomBGColor(rnd) {
+  const color = `rgb(${rnd()},${rnd()},${rnd()})`;
+  return color;
 }
 
 /***
